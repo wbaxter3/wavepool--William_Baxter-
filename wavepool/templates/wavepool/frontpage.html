@@ -8,11 +8,11 @@
 				<h2>Cover story</h2>
 				<div class="title">
 					<span class="pubdate">{{cover_story.publish_date}}</span>
-					<a href="{{ cover_story.url }}">{{ cover_story.title }}</a>
+					<a href="{{ cover_story.url }}{{cover_story.pk}}">{{ cover_story.title }}</a>
 				</div>
 				<div><img src="media/image/placeholder-img.jpg"  width="300" height="175" /></div>
 				<div class="newspost-teaser" data-newspost-id="{{cover_story.pk}}">
-					{{ cover_story.teaser }} ...
+					{{ cover_story.teaser}} ...
 				</div>
 			</div>
 		</div>
@@ -22,9 +22,9 @@
 				{% for newspost in top_stories %}
 					<div class="topstory" data-newspost-id="{{newspost.pk}}" data-top-story-placement="{{forloop.counter}}">
 						<span class="pubdate">{{newspost.publish_date}}</span>
-						<div class="frontpage-archive_link"><a href="{{ newspost.url }}">{{ newspost.title }}</a></div>
+						<div class="frontpage-archive_link"><a href="{{ newspost.url }}{{ newspost.pk}}">{{ newspost.title }}</a></div>
 						<div class="newspost-teaser" data-story_id="{{newspost.pk}}">
-							{{ newspost.teaser  }} ...
+							{{ newspost.teaser }} ...
 						</div>
 					<hr />
 					</div>
@@ -39,9 +39,9 @@
 				{% for newspost in archive %}
 					<div class="archived-story" data-archive-story-id="{{newspost.pk}}">
 						<span class="pubdate">{{newspost.publish_date}}</span>
-						<div class="frontpage-archive_link"><a href="{{ newspost.url }}">{{ newspost.title }}</a></div>
+						<div class="frontpage-archive_link"><a href="{{ newspost.url }}{{ newspost.pk}}">{{ newspost.title }}</a></div>
 						<div class="newspost-teaser" data-story_id="{{newspost.pk}}">
-							{{ newspost.teaser  }} ...
+							{{ newspost.teaser}} ...
 						</div>
 					</div>
 					<hr />

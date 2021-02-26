@@ -31,7 +31,11 @@ class NewsPost(models.Model):
 
     @property
     def source_divesite_name(self):
-        return 'Industry Dive'
+        # finds the first period and then ".com". In between them is the source name and then it is cinverted into a properly formatted string
+        startIndex = self.source.index(".")+1
+        endIndex = self.source.index(".com")
+        return DIVESITE_SOURCE_NAMES[self.source[startIndex:endIndex]]
+        
 
     def tags(self):
         return [

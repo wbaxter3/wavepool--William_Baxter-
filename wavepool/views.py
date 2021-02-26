@@ -7,7 +7,7 @@ from django.conf import settings
 
 
 def front_page(request):
-    """ View for the site's front page
+    """ View for the site's front age
         Returns all available newsposts, formatted like:
             cover_story: the newsposts with is_cover_story = True
             top_stories: the 3 most recent newsposts that are not cover story
@@ -17,7 +17,6 @@ def front_page(request):
     cover_story = NewsPost.objects.all().order_by('?').first()
     top_stories = NewsPost.objects.all().order_by('?')[:3]
     other_stories = NewsPost.objects.all().order_by('?')
-
     context = {
         'cover_story': cover_story,
         'top_stories': top_stories,
@@ -29,7 +28,8 @@ def front_page(request):
 
 def newspost_detail(request, newspost_id=None):
     template = loader.get_template('wavepool/newspost.html')
-    newspost = NewsPost.objects.order_by('?').first()
+    # get news post by id
+    newspost = NewsPost.objects.get(pk=newspost_id)
     context = {
         'newspost': newspost
     }
